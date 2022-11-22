@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "NetCorePal",
+  "classifications": ["Web"],
+  "identity": "NetCorePal.YARP.IngressController.Template",
+  "name": "YARP Ingress Controller Template",
+  "shortName": "yarpingresscontroller",
+  "language": "C#",
+  "symbols": {
+    "temp1": {
+      "type": "derived",
+      "valueSource": "name",
+      "replaces": "theuc",
+      "valueTransform": "first_uc",
+      "fileRename": "theuc"
+    },
+    "temp2": {
+      "type": "derived",
+      "valueSource": "name",
+      "replaces": "theabc",
+      "valueTransform": "lc",
+      "fileRename": "theabc"
+    }
+  },
+  "forms": {
+    "first_uc": {
+      "identifier": "firstUpperCaseInvariant"
+    },
+    "lc": {
+      "identifier": "lowerCaseInvariant"
+    }
+  }
+}

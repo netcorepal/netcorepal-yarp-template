@@ -1,0 +1,10 @@
+apiVersion: networking.k8s.io/v1
+kind: IngressClass
+metadata:
+  name: {{ .Values.yarp.controllerClass | default .Release.Name }}
+  labels:
+    {{- include "theabc-ingress-controller.labels" . | nindent 4 }}
+  annotations:
+    ingressclass.kubernetes.io/is-default-class: "{{ .Values.isDefaultClass }}"
+spec:
+  controller: theabc.com/{{ .Values.yarp.controllerClass | default .Release.Name }}
