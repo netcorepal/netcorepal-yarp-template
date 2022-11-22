@@ -36,7 +36,7 @@ metadata:
   name: baidu-com
   namespace: default
 spec:
-  ingressClassName: theabc
+  ingressClassName: xiao
   rules:
     - host: localhost
       http:

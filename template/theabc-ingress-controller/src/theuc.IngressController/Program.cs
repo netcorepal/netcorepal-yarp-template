@@ -9,9 +9,12 @@ builder.WebHost.UseKubernetesReverseProxyCertificateSelector();
 builder.Services.AddHealthChecks();
 builder.Services.AddYarpProxyStateUI();
 var app = builder.Build();
-app.UseRouting();
+
 app.UseHealthChecks(path: "/healthz");
 app.UseMetricServer(url: "/metrics");
+app.UseYarpProxyStateUIStaticFiles();
+
+app.UseRouting();
 app.UseYarpProxyStateUI(); // YARP Proxy State UI  http://yourip/_state
 app.MapReverseProxy();
 
