@@ -12,7 +12,6 @@ dotnet new install NetCorePal.YARP.Template.1.0.0.nupkg
 
 ```shell
 dotnet new install NetCorePal.YARP.Template
-dotnet new update NetCorePal.YARP.Template
 dotnet new yarpingresscontroller -n yourname
 ```
 
