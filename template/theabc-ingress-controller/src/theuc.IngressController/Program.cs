@@ -18,6 +18,7 @@ app.UseYarpProxyStateUIStaticFiles();
 
 app.UseRouting();
 app.UseYarpProxyStateUI(); // YARP Proxy State UI  http://yourip/_state
+app.UseHttpMetrics();
 app.MapReverseProxy();
 
 app.Run();
