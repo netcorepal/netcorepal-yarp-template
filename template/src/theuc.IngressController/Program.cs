@@ -1,4 +1,5 @@
 using Prometheus;
+using theuc.IngressController.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +9,7 @@ if (!builder.Environment.IsDevelopment())
 {
     builder.WebHost.UseKubernetesReverseProxyCertificateSelector();
 }
+
 builder.Services.AddHealthChecks();
 builder.Services.AddYarpProxyStateUI();
 var app = builder.Build();
@@ -22,3 +24,8 @@ app.UseHttpMetrics();
 app.MapReverseProxy();
 
 app.Run();
+
+
+public partial class Program
+{
+}

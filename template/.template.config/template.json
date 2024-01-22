@@ -6,6 +6,7 @@
   "name": "YARP Ingress Controller Template",
   "shortName": "yarpingresscontroller",
   "language": "C#",
+  "preferNameDirectory": true,
   "symbols": {
     "temp1": {
       "type": "derived",
