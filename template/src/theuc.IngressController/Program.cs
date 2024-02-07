@@ -4,12 +4,16 @@ using theuc.IngressController.Extensions;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Configuration.AddJsonFile("/app/config/yarp.json", optional: true);
-builder.Services.AddKubernetesReverseProxy(builder.Configuration);
+builder.Services.AddKubernetesReverseProxy(builder.Configuration)
+  .LoadFromConfig(builder.Configuration.GetSection("ReverseProxy"));
 if (!builder.Environment.IsDevelopment())
 {
     builder.WebHost.UseKubernetesReverseProxyCertificateSelector();
 }
 
+#region  身份认证
+builder.Services.AddAuth(builder.Configuration);
+#endregion
 builder.Services.AddHealthChecks();
 builder.Services.AddYarpProxyStateUI();
 var app = builder.Build();

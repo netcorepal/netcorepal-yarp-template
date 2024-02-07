@@ -15,7 +15,6 @@ public class IngressControllerWebApplicationFactory : WebApplicationFactory<Prog
         var configPath = "kube_cfg.cfg";
         File.WriteAllText(configPath, Containers.K3SContainer.GetKubeconfigAsync().Result);
         _k8SClient = new Kubernetes(KubernetesClientConfiguration.BuildConfigFromConfigFile(configPath));
-        var cmd = "kubectl apply -f yamls/backend.yaml";
     }
 
 
@@ -24,6 +23,7 @@ public class IngressControllerWebApplicationFactory : WebApplicationFactory<Prog
         //builder.UseSetting("redis:host", _containers.RedisContainer.Hostname);
         //builder.UseSetting("spring:redis:port", _containers.RedisContainer.GetMappedPublicPort(6379).ToString());
         builder.UseEnvironment("Development");
+        builder.UseSetting("connectionStrings:redis", Containers.RedisContainer.GetConnectionString());
         builder.ConfigureServices(services => { services.AddSingleton<IKubernetes>(_k8SClient); });
         base.ConfigureWebHost(builder);
     }

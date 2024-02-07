@@ -8,6 +8,10 @@
     <DockerfileContext>..\..</DockerfileContext>
   </PropertyGroup>
   <ItemGroup>
+    <PackageReference Include="AspNet.Security.OAuth.Feishu" Version="8.0.0" />
+    <PackageReference Include="AspNet.Security.OAuth.Weixin" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.DataProtection.StackExchangeRedis" Version="8.0.0"/>
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="NetCorePal.Extensions.YarpProxyStateUI" Version="0.1.0-preview.1.2211221311" />
     <PackageReference Include="prometheus-net.AspNetCore" Version="8.1.0" />
